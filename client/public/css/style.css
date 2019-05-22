@@ -1,8 +1,61 @@
+*{
+    margin: 0px;
+    padding: 0px
+    
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20vw ;
+  grid-gap: 0.5em;
+  font-family: sans-serif;
+}
+
+header,
+main,
+aside,
+footer {
+  grid-column: 1 / span 2;
+}
+
+
+header,
+main,
+footer {
+  /* background: #F4F4F4; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+
 a{
     background-color: rgb(217, 255, 0); 
     cursor: pointer ;
+    margin: 10px;
+    padding: 5px;
     
 }
 a:hover{
     background-color: rgb(233, 133, 233)
 }
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+label{
+ font-size: 1.5rem;
+ font-family: sans-serif;
+}
+
+h2{
+    margin: 10px;
+}
+
