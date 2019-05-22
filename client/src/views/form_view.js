@@ -6,8 +6,6 @@ const BucketFormView = function(form) {
 
 BucketFormView.prototype.bindEvents = function () {
     this.form.addEventListener('submit', (evt) => {
-        console.log(evt);
-        
         this.handleSubmit(evt);
     });
 };
@@ -15,13 +13,20 @@ BucketFormView.prototype.bindEvents = function () {
 BucketFormView.prototype.handleSubmit = function (evt) {
     evt.preventDefault();
     const newWish = this.createWish(evt.target);
+    
     PubSub.publish('FormView:wish-submitted', newWish);
     evt.target.reset();
 };
 
 BucketFormView.prototype.createWish = function (form) {
+    const newWish = {
+        wish: form.wish.value,
+        }
 
+    return newWish;
     };
+
+   
 
 
 module.exports = BucketFormView;
