@@ -10,6 +10,12 @@ Wishes.prototype.bindEvents = function () {
     PubSub.subscribe('FormView:wish-submitted', (evt) => {
         this.postWish(evt.detail); 
     })
+
+    PubSub.subscribe('ListView:wish-delete-clicked', (evt) => {
+        // console.log(evt.detail);
+        
+        this.deleteWish(evt.detail)
+    })
 }
 
 Wishes.prototype.getData = function(){
@@ -25,6 +31,13 @@ Wishes.prototype.postWish = function (wish) {
          PubSub.publish('Wishes:data-loaded', wishes);
         })
         
+}
+
+Wishes.prototype.deleteWish = function (wishId) {
+    this.request.delete(wishId)
+        .then((wishes) => {
+            PubSub.publish('Wishes:data-loaded', wishes);
+        })
 }
 
 module.exports = Wishes;
