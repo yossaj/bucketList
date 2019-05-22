@@ -6,7 +6,7 @@ const ListView = function(container){
 
 ListView.prototype.bindEvents = function(){
     PubSub.subscribe('Wishes:data-loaded', (evt)=>{
-        console.log(evt.detail);
+        // console.log(evt.detail);
         
         this.render(evt.detail)
          
